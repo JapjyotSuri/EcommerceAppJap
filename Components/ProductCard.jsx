@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ProductDetailsScreen from './ProductDetailsScreen'
+
 
 const ProductCard = ({id,title,price,category,description,image,rating,navigation}) => {
     

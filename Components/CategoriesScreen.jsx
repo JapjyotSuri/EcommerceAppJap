@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useContext } from 'react'
 import ProductContext from '../Context/ProductContext'
-import Homescreen from './Homescreen';
+
 
 const CategoriesScreen = ({navigation}) => {
     const {categories,setCategorySelection}=useContext(ProductContext);

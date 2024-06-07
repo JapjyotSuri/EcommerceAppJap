@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const CartScreen = () => {
     const {cart,setCart}=useContext(ProductContext);
-    function removeCart(id){
+    function removeCart(id){//removing item from cart
        const newCart=cart.filter((item) => (
         item.id !== id
        ))

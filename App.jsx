@@ -16,7 +16,7 @@ import OrdersScreen from './Components/OrdersScreen'
 import SettingsScreen from './Components/SettingsScreen'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-enableScreens();
+enableScreens();//This is used to optimise the performance and memory usage of the app while navigating from one page to another
 
 
 const Stack = createNativeStackNavigator();
@@ -64,51 +64,39 @@ const Homestack = ({ navigation }) => (
 )
 
 const Tabnav = ({ navigation }) => (
-  <Tab.Navigator 
-  screenOptions={({route}) => ({
-    tabBarStyle: {
-      // margin: 20,
-      // bottom: 5,
-      // left: 5,
-      // right: 5,
-      // borderRadius: 15,
-      // height: 60,
-      // position: 'absolute',
-      // shadowColor: 'rgba(0,0,0,0.24)',
-      // shadowOffset: { width: 0, height: 3 },
-      // shadowOpacity: 1,
-      // shadowRadius: 8,
-      // elevation: 4,
-       backgroundColor: '#192A56'
-    },
-    tabBarIcon: ({focused,color,size}) =>{
-      let iconName;
-      if(route.name==='Home'){
-        iconName='home'
-      }
-      else if(route.name === 'Categories'){
-        iconName='appstore-o'
-      }
-      else if(route.name === 'Cart'){
-        iconName='shoppingcart'
-      }
-      return <AntDesign name={iconName} size={size} color={color} />;
-    },
-    tabBarInactiveTintColor: 'white',
-    headerStyle: {
-      backgroundColor: '#192A56'
-    },
-    headerTintColor: 'white'
-  } 
-)}
-  
+  <Tab.Navigator //parent navigator of stack and child navigator of stack
+    screenOptions={({ route }) => ({
+      tabBarStyle: {
+        backgroundColor: '#192A56'
+      },
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+        if (route.name === 'Home') {
+          iconName = 'home'
+        }
+        else if (route.name === 'Categories') {
+          iconName = 'appstore-o'
+        }
+        else if (route.name === 'Cart') {
+          iconName = 'shoppingcart'
+        }
+        return <AntDesign name={iconName} size={size} color={color} />;
+      },
+      tabBarInactiveTintColor: 'white',
+      headerStyle: {
+        backgroundColor: '#192A56'
+      },
+      headerTintColor: 'white'
+    }
+    )}
+
   >
     <Tab.Screen
       name='Home'
       component={Homestack}
       options={{
         headerShown: false,
-        
+
         tabBarButton: (props) => (
           <TouchableOpacity
             {...props}
@@ -120,7 +108,7 @@ const Tabnav = ({ navigation }) => (
             }}
           />
         ),
-        
+
       }}
     />
     <Tab.Screen name='Categories' component={CategoriesScreen} options={{
@@ -145,13 +133,13 @@ const Tabnav = ({ navigation }) => (
           onPress={() => navigation.toggleDrawer()}
         />
       ),
-      
-    
+
+
     }}></Tab.Screen>
   </Tab.Navigator>
 )
 
-const Drawernav = ({ navigation }) => (
+const Drawernav = ({ navigation }) => ( //parent navigator
   <Drawer.Navigator>
     <Drawer.Screen name='HomeScreen' component={Tabnav} options={{
       headerShown: false
@@ -170,19 +158,19 @@ const Drawernav = ({ navigation }) => (
         backgroundColor: '#192A56'
       },
       headerTintColor: 'white'
-    }}/>
+    }} />
     <Drawer.Screen name='Orders' component={OrdersScreen} options={{
       headerStyle: {//setting backgroun color blue and font color as white
         backgroundColor: '#192A56'
       },
       headerTintColor: 'white'
-    }}/>
+    }} />
     <Drawer.Screen name='Settings' component={SettingsScreen} options={{
       headerStyle: {//setting backgroun color blue and font color as white
         backgroundColor: '#192A56'
       },
       headerTintColor: 'white'
-    }}/>
+    }} />
   </Drawer.Navigator>)
 
 

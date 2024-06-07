@@ -18,7 +18,7 @@ const ProductContextProvider = ({children}) => {
             const res=await fetch('https://fakestoreapi.com/products');
             const data=await res.json();
             setProducts(data);
-            console.log(products);
+            // console.log(products);
             const cateres=await fetch('https://fakestoreapi.com/products/categories');
             const catedata=await cateres.json();
             setCategories(catedata);

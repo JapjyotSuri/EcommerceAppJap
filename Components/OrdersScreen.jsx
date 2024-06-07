@@ -4,7 +4,7 @@ import React from 'react'
 const OrdersScreen = () => {
   return (
     <View style={styles.mainContainer}>
-      <Text style={{fontSize: 18,fontWeight: 'bold'}}>Orders Screen</Text>
+      <Text style={{fontSize: 18,fontWeight: 'bold'}}>No Orders yet</Text>
     </View>
   )
 }

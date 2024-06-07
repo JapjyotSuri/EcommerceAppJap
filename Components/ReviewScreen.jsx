@@ -65,12 +65,7 @@ const ReviewScreen = ({id,rating}) => {
 
   )
 }
-{/* <View style={{ justifyContent: 'center',height: '80%',alignItems: 'center'}}>
-         <View >
-            <Text style={{fontSize: 24,}}>Reviews about the product.......</Text>
-           
-         </View>
-         </View> */}
+
 
 export default ReviewScreen
 

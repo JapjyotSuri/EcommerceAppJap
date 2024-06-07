@@ -7,13 +7,11 @@ import ReviewScreen from './ReviewScreen';
 
 
 const ProductDetailsScreen = ({ route, navigation }) => {
-  const { id, title, price, category, description, image, rating } = route.params;
+  const { title, price, description, image } = route.params;
   const { cart, setCart ,isModalVisible,setIsModalVisible} = useContext(ProductContext);
   
   return (
-    <ScrollView>
-    {/* <SafeAreaView  style={styles.safeArea}> */}
-      
+    <ScrollView> 
       <View style={styles.mainContainer}>
         <View style={styles.imgContainer}>
           <Image style={styles.img} source={{ uri: image }} resizeMode='contain' />
@@ -23,12 +21,8 @@ const ProductDetailsScreen = ({ route, navigation }) => {
         <View style={{ alignItems: 'flex-start', width: '100%' }}>
 
           <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'green', marginBottom: 10}}> MRP: $ {price}</Text>
-          {/* <Text>Rating: {rating.rate}</Text>
-          <Text>Total Reviews: {rating.count}</Text> */}
+          
         </View>
-
-        
-        {/* <Text style={{ fontWeight: 'bold', fontSize: 20, }}>Category: {category}</Text> */}
         
         <View style={{height: 125}}>
         <ScrollView>
@@ -43,7 +37,7 @@ const ProductDetailsScreen = ({ route, navigation }) => {
           <Pressable style={[styles.btn, { backgroundColor: '#192A56', width: '45%' }]} onPress={() => {
             const updatedCart = [...cart, route.params];
             setCart(updatedCart)
-            console.log(cart);
+            // console.log(cart);
             navigation.navigate('Cart');
           }}>
             <Text style={{ color: 'white', fontWeight: 'bold' }}>+ Add to Cart</Text>
@@ -55,8 +49,6 @@ const ProductDetailsScreen = ({ route, navigation }) => {
           <ReviewScreen {... route.params}/>
 
       </Modal>
-      
-    {/* </SafeAreaView> */}
     </ScrollView>
   )
 }
@@ -87,12 +79,7 @@ const styles = StyleSheet.create({
     width: 350,
     // alignItems: 'center',
     borderRadius: 4,
-    // shadowColor: 'rgba(0,0,0,0.24)',
-    // shadowOffset: {width: 0,height: 3},
-    // shadowOpacity: 1,
-    // shadowRadius: 10,
-    // elevation: 4,
-
+   
   },
   btn: {
     height: 50,
