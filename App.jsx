@@ -64,7 +64,7 @@ const Homestack = ({ navigation }) => (
 )
 
 const Tabnav = ({ navigation }) => (
-  <Tab.Navigator //parent navigator of stack and child navigator of stack
+  <Tab.Navigator //parent navigator of stack and child navigator of drawer
     screenOptions={({ route }) => ({
       tabBarStyle: {
         backgroundColor: '#192A56'

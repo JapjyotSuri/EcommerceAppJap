@@ -22,7 +22,7 @@ const Homescreen = ({ navigation }) => {
 
   }, [categorySelection])
   useEffect(() => {
-    setCategoryOutput(products);//this I did as without this it gives empty output s fetcjing info from api takes time and this used to take products as []
+    setCategoryOutput(products);//this I did as without this it gives empty output when fetching for the first time  from api takes time and this used to take products as []
   }, [products])
   return (
 
