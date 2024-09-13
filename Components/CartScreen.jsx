@@ -1,17 +1,12 @@
 import { StyleSheet, Text, View,Image, Pressable ,ScrollView} from 'react-native'
 import React, { useContext } from 'react'
 import ProductContext from '../Context/ProductContext';
+import MovableCard from './MovableCard';
 
 
 
 const CartScreen = () => {
-    const {cart,setCart}=useContext(ProductContext);
-    function removeCart(id){//removing item from cart
-       const newCart=cart.filter((item) => (
-        item.id !== id
-       ))
-       setCart(newCart)
-    }
+  const {cart,setCart}=useContext(ProductContext);
     if(cart.length==0){
       return (
         <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
@@ -25,20 +20,9 @@ const CartScreen = () => {
       <ScrollView>
       {
         cart.map((item,index)=>(
-          <View key={index} style={styles.container}> 
-          <View >
-          <Image style={{height: 100,width: 100}} source={{uri: item.image}} resizeMode='contain'></Image>
-          </View>
-          <View style={{ flex: 1,justifyContent: 'center',gap: 10}}>
-            <Text style={{fontWeight: 'bold',fontSize: 16}}>{item.title}</Text>
-            <View style={{flexDirection: 'row',justifyContent: 'space-between',marginRight: 10, alignItems: 'center'}}> 
-            <Text style={{fontWeight: 'bold',fontSize: 15}}>$ {item.price}</Text>
-            <Pressable onPress={()=>{removeCart(item.id) }} style={styles.btn}>
-              <Text style={{color: 'white', fontWeight: 'bold'}}>Remove</Text>
-            </Pressable>
-            </View>
-            </View>
-            </View>
+          
+            <MovableCard item={item}/>
+            
         ))
       }
       </ScrollView>
