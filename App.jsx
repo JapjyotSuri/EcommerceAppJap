@@ -16,6 +16,7 @@ import OrdersScreen from './Components/OrdersScreen'
 import SettingsScreen from './Components/SettingsScreen'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+
 enableScreens();//This is used to optimise the performance and memory usage of the app while navigating from one page to another
 
 
@@ -177,11 +178,13 @@ const Drawernav = ({ navigation }) => ( //parent navigator
 
 const App = () => {
   return (
+    
     <ProductContextProvider>
       <NavigationContainer>
         <Drawernav />
       </NavigationContainer>
     </ProductContextProvider>
+    
 
   )
 }

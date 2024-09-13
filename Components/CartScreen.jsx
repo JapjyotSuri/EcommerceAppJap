@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View,Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View,Image, Pressable ,ScrollView} from 'react-native'
 import React, { useContext } from 'react'
 import ProductContext from '../Context/ProductContext';
-import { ScrollView } from 'react-native-gesture-handler';
+
 
 
 const CartScreen = () => {
