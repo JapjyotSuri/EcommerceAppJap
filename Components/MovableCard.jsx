@@ -23,7 +23,7 @@ const MovableCard = ({item}) => {
         prevTranslationX.value=translationX.value
     }).onUpdate((event) => {
         const maxTranslateX = width / 2 - 50;
-        translationX.value = clamp(
+        translationX.value = clamp(//this is used so that the card doesnt completely moive out of the screen and clamp basically takes 3 values (data that changes,its min value,its max value)
         prevTranslationX.value + event.translationX,
         -maxTranslateX,
         maxTranslateX
